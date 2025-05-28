@@ -1,0 +1,67 @@
+<header id="header" class="header d-flex flex-column justify-content-center">
+
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#home" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+        <li><a href="#techstack"><i class="bi bi-code navicon"></i><span>TechStack</span></a></li>
+        <li><a href="#timeline"><i class="bi bi-file-earmark-text navicon"></i><span>Timeline</span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+      <img src="assets/img/hero-bg.jpg" alt="">
+
+      <div class="container" data-aos="zoom-out">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2>Marjy Galingan</h2>
+            <p>I'm <span class="typed" data-typed-items="Developer, Freelancer">Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+            <div class="social-links">
+              <a href="mailto:galinganmarjy61@gmail.com"><i class="bi bi-envelope-at-fill"></i></a>
+              <a href="https://www.linkedin.com/in/mar-gal/"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/Alcafam"><i class="bi bi-github"></i></a>
+            </div>
+            <div class="mt-3">
+              <a href="path/to/Marjy_Galingan_Resume.pdf" download class="btn btn-primary">
+                <i class="bi bi-cloud-download-fill"></i> Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <%= render "homepage/sections/about" %>
+    <%= render "homepage/sections/skill" %>
+    <%= render "homepage/sections/timeline" %>
+    <%= render "homepage/sections/portfolio", projects: @projects %>
+    
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <p>© 2025 — Marjy Galingan</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:galinganmarjy61@gmail.com"><i class="bi bi-envelope-at-fill"></i></a>
+        <a href="https://www.linkedin.com/in/mar-gal/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/Alcafam" target="_blank"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>

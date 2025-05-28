@@ -8,3 +8,14 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.skill-icon {
+   height:50px !important;
+   width: 50px !important;
+ }
+
+.project-liks {
+   position: absolute;
+   bottom: 10px;        /* distance from bottom edge of card */
+   right: 15px;  
+}
