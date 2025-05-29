@@ -87,9 +87,12 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: portfolio_production
-    username: portfolio
-    password: <%= ENV["PORTFOLIO_DATABASE_PASSWORD"] %>
+    database: <%= ENV.fetch("DB_DATABASE", "my_app_production") %>
+    username: <%= ENV.fetch("DB_USERNAME", "my_app_user") %>
+    password: <%= ENV.fetch("DB_PASSWORD", "secret") %>
+    host: <%= ENV.fetch("DB_HOST", "localhost") %>
+    port: <%= ENV.fetch("DB_PORT", 5432) %>
+    adapter: <%= ENV.fetch("DB_CONNECTION", "postgresql") %>
   cache:
     <<: *primary_production
     database: portfolio_production_cache
