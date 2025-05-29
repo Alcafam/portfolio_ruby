@@ -9,13 +9,15 @@
       <div class="container">
         <div class="row d-flex justify-content-center">
           <% @projects.each do |project| %>
-            <div class="card mx-1 col-3" style="height:350px">
+            <div class="card m-1 col-lg-3 col-md col-sm-12" style="height:350px">
               <div class="card-body">
                 <h5 class="card-title"><%= project.title %></h5>
                 <p class="card-text"><%= project.description %></p>
                 <div class="project-liks">
                   <a href="<%= project.github_link %>" target="_blank"><i class="bi bi-github fs-3"></i></a>
-                  <a href="<%= project.live_link %>" target="_blank"><i class="bi bi-globe fs-3"></i></a>
+                  <% if project.live_link.present? %>
+                    <a href="<%= project.live_link %>" target="_blank"><i class="bi bi-globe fs-3"></i></a>
+                  <% end %>
                 </div>
               </div>
             </div>
