@@ -92,7 +92,7 @@ production:
     password: <%= ENV.fetch("DB_PASSWORD", "secret") %>
     host: <%= ENV.fetch("DB_HOST", "localhost") %>
     port: <%= ENV.fetch("DB_PORT", 5432) %>
-    adapter: <%= ENV.fetch("DB_CONNECTION", "postgresql") %>
+    adapter: postgresql %>
   cache:
     <<: *primary_production
     database: portfolio_production_cache
