@@ -17,8 +17,10 @@
                   <% project.tags.first(2).each do |tag| %>
                     <span class="badge bg-secondary me-1" style="font-size: 0.75rem;"><%= tag.name %></span>
                   <% end %>
+                  <span><i class="bi bi-github me-1" style="font-size: 0.75rem;"></i> <%= project.year_created %></span>
                 </div>
                 <div class="project-liks">
+                  
                   <a href="<%= project.github_link %>" target="_blank"><i class="bi bi-github fs-3"></i></a>
                   <% if project.live_link.present? %>
                     <a href="<%= project.live_link %>" target="_blank"><i class="bi bi-globe fs-3"></i></a>
