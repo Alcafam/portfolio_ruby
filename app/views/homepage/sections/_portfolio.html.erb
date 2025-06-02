@@ -17,7 +17,7 @@
                   <% project.tags.first(2).each do |tag| %>
                     <span class="badge bg-secondary me-1" style="font-size: 0.75rem;"><%= tag.name %></span>
                   <% end %>
-                  <span><i class="bi bi-github me-1" style="font-size: 0.75rem;"></i> <%= project.year_created %></span>
+                  <span class="badge bg-secondary"><i class="bi bi-calendar" style="font-size: 0.75rem;"></i> <%= project.year_created %></span>
                 </div>
                 <div class="project-liks">
                   

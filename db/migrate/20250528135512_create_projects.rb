@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration[8.0]
       t.string :description
       t.string :github_link
       t.string :live_link
+      t.int :year_created
       t.boolean :featured
 
       t.timestamps
