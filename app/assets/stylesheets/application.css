@@ -19,3 +19,11 @@
    bottom: 10px;        /* distance from bottom edge of card */
    right: 15px;  
 }
+
+.description-line-limit {
+   display: -webkit-box;
+   -webkit-line-clamp: 8;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
