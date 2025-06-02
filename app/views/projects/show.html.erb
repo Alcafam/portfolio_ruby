@@ -1,2 +1,50 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<div class='container py-5'>
+
+    <% if @project.video_demo.present? %>
+        <div>
+            <% if @project.video_demo.include?("youtube.com/watch?v=") %>
+            <% video_id = @project.video_demo.split("v=").last.split("&").first %>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/<%= video_id %>" frameborder="0" allowfullscreen></iframe>
+
+            <% elsif @project.video_demo.include?("youtu.be/") %>
+            <% video_id = @project.video_demo.split('/').last %>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/<%= video_id %>" frameborder="0" allowfullscreen></iframe>
+
+            <% elsif @project.video_demo.include?("vimeo.com") %>
+            <% video_id = @project.video_demo.split('/').last %>
+            <iframe src="https://player.vimeo.com/video/<%= video_id %>" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+
+            <% else %>
+            <video width="100%" height="400" controls>
+                <source src="<%= @project.video_demo %>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <% end %>
+        </div>
+    <p>Here is a video demo, just in case my hosting subscription expires. 😢 </p>
+    <% end %>
+
+
+    <h1 class='display-5 fw-bold'>
+        Event Manager - Backend
+        <span class="fw-4">
+        <a href="<%= @project.github_link %>" target="_blank">
+            <i class="bi bi-github fs-3 me-2"></i>
+        </a>
+
+        <% if @project.live_link.present? %>
+            <a href="<%= @project.live_link %>" target="_blank">
+                <i class="bi bi-globe fs-3"></i>
+            </a>
+        <% end %>
+
+        </span>
+    </h1>
+    <% @project.tags.each do |tag| %>
+        <span class="badge bg-secondary me-1" style="font-size: 0.75rem;"><%= tag.name %></span>
+    <% end %>
+
+    <p>Created last <%= @project.year_created %></p>
+    <p class='lead'><%= @project.description %></p>
+    <%= raw @project.sub_description if @project.sub_description.present? %>
+</div>
