@@ -1,3 +1,11 @@
+/**
+* Template Name: MyResume
+* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+* Updated: Jun 29 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
 (function() {
   "use strict";
 
@@ -144,17 +152,29 @@
       });
     });
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filter) {
+      filter.addEventListener('click', function () {
+        // Toggle active class
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
+
+        // Filter items
         initIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
+        
+        // Update category description
+        const description = this.getAttribute('data-description') || "";
+        const descriptionEl = document.getElementById('category_description');
+        if (descriptionEl) {
+          descriptionEl.textContent = description;
+        }
+
+        // Re-initialize AOS
         if (typeof aosInit === 'function') {
           aosInit();
         }
-      }, false);z
+      }, false);
     });
 
   });
