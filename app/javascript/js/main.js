@@ -154,7 +154,7 @@
         if (typeof aosInit === 'function') {
           aosInit();
         }
-      }, false);
+      }, false);z
     });
 
   });
