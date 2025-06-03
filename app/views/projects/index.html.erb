@@ -6,7 +6,7 @@
       <li><a href="/#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
       <li><a href="/#techstack"><i class="bi bi-code navicon"></i><span>TechStack</span></a></li>
       <li><a href="/#timeline"><i class="bi bi-file-earmark-text navicon"></i><span>Timeline</span></a></li>
-      <li><a href="/#portfolio" class="active"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+      <li><a href="/projects" class="active"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
     </ul>
   </nav>
 </header>
@@ -35,9 +35,9 @@
         <div class="row gy-4 isotope-container d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">     
         
         <% @projects.each do |project| %>
-          <%= link_to project_path(project.slug), class: "card m-1 col-lg-3 col-md col-sm-12 text-decoration-none text-dark portfolio-item isotope-item #{project.category.slug}", style: "height: 350px;" do %>
-            <div class="card-body">
-              <h5 class="card-title"><%= project.title %></h5>
+          <div class="card m-1 col-lg-3 col-md col-sm-12 text-decoration-none text-dark portfolio-item isotope-item #{project.category.slug}" style="height: 350px;">
+            <%= link_to project_path(project.slug), class: "card-body" do %>
+            <h5 class="card-title"><%= project.title %></h5>
               <p class="card-text description-line-limit"><%= project.description %></p>
               <div>
                 <% project.tags.first(2).each do |tag| %>
@@ -47,14 +47,17 @@
                   <i class="bi bi-calendar" style="font-size: 0.75rem;"></i> <%= project.year_created %>
                 </span>
               </div>
+              <% end %>
               <div class="project-links mt-2">
-                <i class="bi bi-github fs-3 me-2" onclick="event.stopPropagation(); window.open('<%= project.github_link %>', '_blank')"></i>
+                <% if project.github_link.present? %>
+                  <a href="<%= project.github_link %>" target="_blank"><i class="bi bi-github fs-3 me-2"></i></a>
+                <% end %>
+                
                 <% if project.live_link.present? %>
-                  <i class="bi bi-globe fs-3" onclick="event.stopPropagation(); window.open('<%= project.live_link %>', '_blank')"></i>
+                  <a href="<%= project.live_link %>" target="_blank"><i class="bi bi-globe fs-3"></i></a></i>
                 <% end %>
               </div>
-            </div>
-          <% end %>
+          </div>
         <% end %>
         </div>
       </div>

@@ -174,6 +174,7 @@
         if (typeof aosInit === 'function') {
           aosInit();
         }
+        
       }, false);
     });
 

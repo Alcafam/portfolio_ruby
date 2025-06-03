@@ -6,7 +6,7 @@
       <li><a href="/#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
       <li><a href="/#techstack"><i class="bi bi-code navicon"></i><span>TechStack</span></a></li>
       <li><a href="/#timeline"><i class="bi bi-file-earmark-text navicon"></i><span>Timeline</span></a></li>
-      <li><a href="/#portfolio" class="active"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+      <li><a href="/projects" class="active"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
     </ul>
   </nav>
 </header>
@@ -41,11 +41,13 @@
 
 
     <h1 class='display-5 fw-bold'>
-        Event Manager - Backend
+        <%= @project.title %>
         <span class="fw-4">
-        <a href="<%= @project.github_link %>" target="_blank">
-            <i class="bi bi-github fs-3 me-2"></i>
-        </a>
+        <% if @project.github_link.present? %>
+            <a href="<%= @project.github_link %>" target="_blank">
+                <i class="bi bi-github fs-3 me-2"></i>
+            </a>
+        <% end %>
 
         <% if @project.live_link.present? %>
             <a href="<%= @project.live_link %>" target="_blank">
@@ -65,3 +67,4 @@
 </div>
 </section>
 </main>
+

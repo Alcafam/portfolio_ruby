@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.order(year_created: :desc)
     @categories = Category.all
   end
 
