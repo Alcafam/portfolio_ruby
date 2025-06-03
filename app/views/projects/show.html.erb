@@ -1,5 +1,20 @@
-<div class='container py-5'>
+<header id="header" class="header d-flex flex-column justify-content-center">
+  <i class="header-toggle d-xl-none bi bi-list"></i>
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="/"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+      <li><a href="/#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+      <li><a href="/#techstack"><i class="bi bi-code navicon"></i><span>TechStack</span></a></li>
+      <li><a href="/#timeline"><i class="bi bi-file-earmark-text navicon"></i><span>Timeline</span></a></li>
+      <li><a href="/#portfolio" class="active"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+    </ul>
+  </nav>
+</header>
 
+<main class="main">
+  <section id="portfolio" class="portfolio section">
+
+<div class='container py-5'>
     <% if @project.video_demo.present? %>
         <div>
             <% if @project.video_demo.include?("youtube.com/watch?v=") %>
@@ -48,3 +63,5 @@
     <p class='lead'><%= @project.description %></p>
     <%= raw @project.sub_description if @project.sub_description.present? %>
 </div>
+</section>
+</main>
