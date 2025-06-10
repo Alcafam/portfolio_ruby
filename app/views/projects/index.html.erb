@@ -18,7 +18,7 @@
       <h2>Projects</h2>
       <p id="category_description">
       </p>
-      <div class="bg-warning mt-5"> <strong>Note: </strong> I'm currently in the process of hosting all my projects—more will be added soon! In the meantime, feel free to check out the rest on my Github.</div>
+      <%# <div class="bg-warning mt-5"> <strong>Note: </strong> I'm currently in the process of hosting all my projects—more will be added soon! In the meantime, feel free to check out the rest on my Github.</div> %>
 
     </div><!-- End Section Title -->
 
@@ -26,6 +26,7 @@
       <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
         <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
           <li data-filter="*" class="filter-active" data-description="">All</li>
+          <li data-filter=".filter-work" data-description="Work Projects">Work</li>
           <% @categories.each do |category| %>
             <li 
               data-filter=".<%= category.slug %>" 
@@ -38,7 +39,7 @@
         <div class="row gy-4 isotope-container d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">     
         
         <% @projects.each do |project| %>
-          <div class="card m-1 col-lg-3 col-md col-sm-12 text-decoration-none text-dark portfolio-item isotope-item <%= project.category.slug %>" style="height: 350px;">
+          <div class="card m-1 col-lg-3 col-md col-sm-12 text-decoration-none text-dark portfolio-item isotope-item <%= project.category.slug %> <%= project.category.slug == 'filter-work' ? 'filter-php' : '' %>" style="height: 350px;">
             <%= link_to project_path(project.slug), class: "card-body" do %>
             <h5 class="card-title"><%= project.title %></h5>
               <p class="card-text description-line-limit"><%= project.description %></p>
@@ -67,3 +68,5 @@
     </div>
   </section>
 </main>
+
+ 
